@@ -1,3 +1,6 @@
+require 'rr'
+require 'date'
+
 def stub_module(full_name)
   full_name.to_s.split(/::/).inject(Object) do |ctx, name|
     begin
