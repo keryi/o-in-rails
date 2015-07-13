@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'ostruct'
+require 'rr'
 require_relative '../../app/models/blog'
 require 'date'
 
@@ -35,7 +36,7 @@ describe Blog do
 
   describe '#add_entry' do
     it 'add entries to the blog' do
-      entry = OpenStruct.new(pubdate: Date.today)
+      entry = stub!
       @blog.add_entry entry
       @blog.entries.must_include entry
     end
