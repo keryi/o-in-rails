@@ -2,4 +2,6 @@ article
   header
     time.pubdate #{entry.pubdate}
     h3 #{entry.title}
+    - if entry.image_url.present?
+      = render 'posts/picture_body', post: entry
     p #{entry.body}

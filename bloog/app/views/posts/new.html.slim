@@ -7,4 +7,7 @@
       .form-group
         = f.text_area :body, class: 'form-control', placeholder: 'body'
       .form-group
+        = f.label :image_url, 'Picture URL'
+        = f.text_field :image_url
+      .form-group
         = f.submit
