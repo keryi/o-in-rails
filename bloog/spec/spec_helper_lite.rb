@@ -10,3 +10,11 @@ def stub_module(full_name)
     end
   end
 end
+
+def stub_class(name)
+  begin
+    Object.const_get name
+  rescue NameError
+    Object.const_set name, Class.new { def initialize(*args); end }
+  end
+end
