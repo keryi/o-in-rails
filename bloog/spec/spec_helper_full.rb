@@ -11,4 +11,13 @@ module SpecHelpers
   def teardown_database
     DatabaseCleaner.clean
   end
+
+  def setup_nulldb
+    schema_path = File.expand_path('../db/schema.rb', File.dirname(__FILE__))
+    NullDB.nullify(schema: schema_path)
+  end
+
+  def teardown_nulldb
+    NullDB.restore
+  end
 end

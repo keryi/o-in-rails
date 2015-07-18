@@ -6,6 +6,6 @@ class TextPostExhibit < BaseExhibit
   end
 
   def self.applicable_to?(model)
-    model.is_a?(Post) && !(model.is_picture?)
+    model.is_a?(Post) && !(model.picture?)
   end
 end

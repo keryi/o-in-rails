@@ -20,4 +20,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rr'
   gem 'database_cleaner'
+  gem 'activerecord-nulldb-adapter'
+  gem 'fig_leaf'
 end
