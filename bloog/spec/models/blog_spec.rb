@@ -5,7 +5,10 @@ require_relative '../../app/models/blog'
 require 'date'
 
 describe Blog do
-  before { @blog = Blog.new }
+  before do
+    @entries = []
+    @blog = Blog.new(->{@entries})
+  end
 
   it 'has no entries' do
     @blog.entries.must_be_empty
@@ -37,8 +40,8 @@ describe Blog do
   describe '#add_entry' do
     it 'add entries to the blog' do
       entry = stub!
-      @blog.add_entry entry
-      @blog.entries.must_include entry
+      mock(entry).save
+      @blog.add_entry(entry)
     end
   end
 
