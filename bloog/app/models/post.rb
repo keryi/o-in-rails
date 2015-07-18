@@ -21,4 +21,8 @@ class Post
   def persisted?
     false
   end
+
+  def picture?
+    image_url.present?
+  end
 end

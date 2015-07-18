@@ -90,4 +90,16 @@ describe Post do
       end
     end
   end
+
+  describe '#picture?' do
+    it 'is true when has a picture url' do
+      @post.image_url = 'http://example.com/pic.png'
+      assert(@post.picture?)
+    end
+
+    it 'is false when has no picture url' do
+      @post.image_url = ''
+      refute(@post.picture?)
+    end
+  end
 end
