@@ -24,13 +24,35 @@ class Post < ActiveRecord::Base
     image_url.present?
   end
 
-  def self.most_recent(limit = 10)
-    order('pubdate DESC').limit(limit)
-  end
-
   def save(*)
     set_default_body
     super
+  end
+
+  class << self
+    def most_recent(limit = 10)
+      order('pubdate DESC').limit(limit)
+    end
+
+    def first_before_date(date)
+      where('pubdate < ?', date).order('pubdate DESC').first
+    end
+
+    def first_after_date(date)
+      where('pubdate > ?', date).order('pubdate ASC').first
+    end
+
+    def prev
+      self.class.first_before_date(pubdate)
+    end
+
+    def next
+      self.class.first_after_date(pubdate)
+    end
+
+    def up
+      blog
+    end
   end
 
   private

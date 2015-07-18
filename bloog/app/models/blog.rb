@@ -27,6 +27,10 @@ class Blog
     fetch_entries
   end
 
+  def model_name
+    ActiveModel::Name.new(self)
+  end
+
   private
 
   def post_source
