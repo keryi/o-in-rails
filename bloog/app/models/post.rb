@@ -27,4 +27,15 @@ class Post < ActiveRecord::Base
   def self.most_recent(limit = 10)
     order('pubdate DESC').limit(limit)
   end
+
+  def save(*)
+    set_default_body
+    super
+  end
+
+  private
+
+  def set_default_body
+    self.body = 'Nothing to see here' if body.blank?
+  end
 end
