@@ -1,11 +1,6 @@
-require 'delegate'
+require_relative 'base_exhibit'
 
-class TextPostExhibit < SimpleDelegator
-  def initialize(model, context)
-    @context = context
-    super(model)
-  end
-
+class TextPostExhibit < BaseExhibit
   def render_body
     @context.render(partial: '/posts/text_post', locals: { post: self })
   end
