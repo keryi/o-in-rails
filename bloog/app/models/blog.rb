@@ -24,7 +24,7 @@ class Blog
   end
 
   def entries
-    @entry_fetcher.sort_by { |e| e.pubdate }.reverse.take(10)
+    fetch_entries.sort_by { |e| e.pubdate }.reverse.take(10)
   end
 
   private

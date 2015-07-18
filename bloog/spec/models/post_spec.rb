@@ -26,12 +26,6 @@ describe Post do
     @post.blog.must_equal blog
   end
 
-  it 'supporter setting attributes in initializer' do
-    post = Post.new title: 'title', body: 'body'
-    post.title.must_equal 'title'
-    post.body.must_equal 'body'
-  end
-
   it 'is not valid with blank title' do
     [nil, '', ' '].each do |title|
       @post.title = title
