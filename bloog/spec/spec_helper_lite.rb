@@ -1,5 +1,7 @@
+ENV['RAILS_ENV'] ||= 'test'
+
+require 'minitest/autorun'
 require 'rr'
-require 'date'
 
 def stub_module(full_name)
   full_name.to_s.split(/::/).inject(Object) do |ctx, name|
